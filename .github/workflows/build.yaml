@@ -93,6 +93,9 @@ jobs:
           dotnet-version: '7.0.x'
 
       - name: Build
+        run: dotnet build .\stage\LibUsbDotNet\LibUsbDotNet.csproj -c Release
+      
+      - name: Pack       
         run: dotnet pack .\stage\LibUsbDotNet\LibUsbDotNet.csproj -c Release -o ${{ github.workspace }}/nuget/
 
       - name: Upload LibUsbDotNet NuGet package
